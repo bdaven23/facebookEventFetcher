@@ -1,5 +1,7 @@
 <?php
-
+/*
+*
+*/
 if (!function_exists('curl_init')) {
   throw new Exception('Facebook needs the CURL PHP extension.');
 }
@@ -962,3 +964,4 @@ class Facebook
     return base64_decode(strtr($input, '-_', '+/'));
   }
 }
+

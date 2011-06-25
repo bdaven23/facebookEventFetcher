@@ -1,4 +1,8 @@
 <?php
+/*
+*  @author Prabesh Shrestha prabesh708@gmail.com
+*/
+
 require 'src/facebook.php';
 // Create our Application instance.
 //These information will be provided when registering an application in facebook
@@ -96,7 +100,7 @@ if ($me) {
                                             $session['access_token']));
 		    $dateformat="j F Y"; // 26 December 2010 - see http://www.php.net/date for details
 		    $timeformat="g.ia"; // 11.25am
-		
+
 		    /*
 			For now The list of events are displayed to the logged in user
 			This need not be displayed later Instead some information about the event Fetcher website can be displayed and users can be 				redirected to that site
@@ -122,3 +126,4 @@ if ($me) {
         <?php endif ?>
     </body>
 </html>
+

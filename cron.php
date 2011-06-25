@@ -2,6 +2,10 @@
 <p>This page will be used by cron or some other scripts which will be running continously to get the events from the
     users who already have authorized their facebook.</p>
 <?php
+/*
+* @author Prabesh Shrestha prabesh708@gmail.com
+*/
+
 $eventsdata = json_decode(file_get_contents(
                         'https://graph.facebook.com/me/events?access_token=' .
                         "150265945018990|2eab97f4a7fef218f62d6a0d-738616327|u0bA01Gs4PUHFxbHEUph_6T-UnI")); //Replace this with access token stored previously
@@ -27,3 +31,4 @@ foreach ($eventsdata as $keys => $events) {
     }
 }
 ?>
+
