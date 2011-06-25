@@ -1,69 +1,40 @@
-Facebook PHP SDK
-================
+Facebook Event Fetcher Wrapper for PHP
+======================================
+Event Fetching from facebook profile .
 
-The [Facebook Platform](http://developers.facebook.com/) is
-a set of APIs that make your application more social. Read more about
-[integrating Facebook with your web site](http://developers.facebook.com/docs/guides/web)
-on the Facebook developer site.
-
-This repository contains the open source PHP SDK that allows you to utilize the
-above on your website. Except as otherwise noted, the Facebook PHP SDK
-is licensed under the Apache Licence, Version 2.0
-(http://www.apache.org/licenses/LICENSE-2.0.html)
-
+The [example][example] is a good place to start.
 
 Usage
 -----
+The minimal you'll need to have is :
+1. Host the code
+  i> upload this folder somewhere in the internet .eg: example.com/facebook.
+  ii> Will not work with localhost.
+
+2. Create facebook application first
+  i> Follow the link http://www.facebook.com/developers/createapp.php
+  ii> After registering the application facebook will provide app id, api key and app secret . Save these credentials and replace these in index.php and cron.php
+  iii> Edit the application setting .
+	In the Facebook integratin tab specify "Canvas Page" for the url of the application.(eg apps.facebook.com/eventfetcher)
+	Replace "Canvas URL" with example.com/facebook/ specified in 1>i> above
+
+3. Use the application
+  i> Once you go to the application url(eg. apps.facebook.com/eventfetcher) it will prompt you to login .
+  ii> Facebook will ask for the permission from user to allow the access to his/her information.
+
+4. save the events
+  i> in the index page access token will be available from the session, save it somewhere (database)
+  ii> Use cron.php with cron of some other script to fetch the events in the future
+
 
 The [examples][examples] are a good place to start. The minimal you'll need to
 have is:
 
-    <?php
-
-    require './facebook.php';
-
-    $facebook = new Facebook(array(
-      'appId'  => 'YOUR APP ID',
-      'secret' => 'YOUR API SECRET',
-      'cookie' => true, // enable optional cookie support
-    ));
-
-To make [API][API] calls:
-
-    try {
-      $me = $facebook->api('/me');
-    } catch (FacebookApiException $e) {
-      error_log($e);
-    }
-
-Logged in vs Logged out:
-
-    if ($facebook->getSession()) {
-      echo '<a href="' . $facebook->getLogoutUrl() . '">Logout</a>';
-    } else {
-      echo '<a href="' . $facebook->getLoginUrl() . '">Login</a>';
-    }
-
-[examples]: http://github.com/facebook/php-sdk/blob/master/examples/example.php
-[API]: http://developers.facebook.com/docs/api
-
+[example]: https://github.com/prabeshshrestha/facebookEventFetcher/blob/master/index.php
 
 Feedback
 --------
 
-We are relying on the [GitHub issues tracker][issues] linked from above for
-feedback. File bugs or other issues [here][issues].
+You can directly send me a issue to prabesh708@gmail.com or report the issue in github.
+Or you Can fork the project / fix the issue / and send me a pull reques
 
-[issues]: http://github.com/facebook/php-sdk/issues
-
-
-
-Tests
------
-
-In order to keep us nimble and allow us to bring you new functionality, without
-compromising on stability, we have ensured full test coverage of the new SDK.
-We are including this in the open source repository to assure you of our
-commitment to quality, but also with the hopes that you will contribute back to
-help keep it stable. The easiest way to do so is to file bugs and include a
-test case.
